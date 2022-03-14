@@ -16,6 +16,8 @@ function App() {
           rtl={false}
           pauseOnFocusLoss
           draggable
+          hideProgressBar={false}
+          pauseOnHover
           />
           <AppRoutes />
       </BrowserRouter>

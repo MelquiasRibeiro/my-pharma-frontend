@@ -24,7 +24,6 @@ export default function Register() {
     "password": "",
     })
 
-
   function handleInputChange(e:ChangeEvent<HTMLInputElement>){
       const {name,value} = e.target;
       setUserData({...userData,[name]:value})

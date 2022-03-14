@@ -6,7 +6,7 @@ interface ILoading {
 }
 
 interface IError {
-  error?: boolean|null;
+  error?: boolean;
 }
 
 export const Wrapper = styled.div`
@@ -63,7 +63,10 @@ const rotate = keyframes`
     transform: rotate(360deg)
   }
 `;
-export const Button = styled.button<ILoading>`
+export const Button = styled.button.attrs((props:ILoading) => ({
+  type: "submit",
+  disabled: props?.loading,
+}))`
   border-radius: 24px;
   font-weight: bold;
   height: 50px;
@@ -78,7 +81,7 @@ export const Button = styled.button<ILoading>`
     cursor: not-allowed;
     opacity: 0.6;
   }
-  ${(props) =>
+  ${(props:ILoading) =>
     props.loading &&
     css`
       svg {
@@ -86,6 +89,7 @@ export const Button = styled.button<ILoading>`
       }
     `}
 `;
+
 export const LinkBack = styled(Link)`
   transition: opacity 0.2s;
   text-decoration: none;
